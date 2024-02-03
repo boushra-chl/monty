@@ -41,4 +41,16 @@ void pall(stack_t *top)
 	}
 }
 
+/**
+ * * pint - prints the value at the top of stack
+ * * @top: pointer to top of stack
+ * *
+ * * Return: Nothing
+ * */
+void pint(stack_t *top)
+{
+	while (top->prev != NULL)
+		top == top->prev;
+	printf("%d\n", top->n);
+}
 
