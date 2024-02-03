@@ -7,14 +7,14 @@
  * *
  * * Return: Nothing
  * */
-void push(stack_t **top, unsigned int line_num, int n)
+void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new_node;
 
 	new_node = (stack_t *)malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer", line_num);
+		fprintf(stderr, "L<%d>: usage: push integer", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = n;
@@ -32,12 +32,17 @@ void push(stack_t **top, unsigned int line_num, int n)
  * *
  * * Return: Nothing
  * */
-void pall(stack_t *top)
+void pall(stack_t **top, unsigned int line_number)
 {
-	while (top != NULL)
+	if ((*top) == NULL)
 	{
-		printf("%d\n", top->n);
-		top = top->next;
+		fprintf(stderr, "L<%d>: usage: monty file", line_number);
+		exit(EXIT_FAILURE);
+	}
+	while ((*top) != NULL)
+	{
+		printf("%d\n", (*top)->n);
+		(*top) = (*top)->next;
 	}
 }
 
@@ -47,10 +52,15 @@ void pall(stack_t *top)
  * *
  * * Return: Nothing
  * */
-void pint(stack_t *top)
+void pint(stack_t **top, unsigned int line_number)
 {
-	while (top->prev != NULL)
-		top == top->prev;
-	printf("%d\n", top->n);
+	if ((*top) == NULL)
+	{
+		fprintf(stderr, "L<%d>: usage: monty file", line_number);
+		exit(EXIT_FAILURE);
+	}
+	while ((*top)->prev != NULL)
+		(*top) = (*top)->prev;
+	printf("%d\n", (*top)->n);
 }
 
