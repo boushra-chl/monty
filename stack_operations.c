@@ -29,19 +29,21 @@ stack_t *create_node(int n)
  * *
  * * Return: Nothing
  * */
-void push(stack_t **stack, int n, unsigned int  __attribute__((__unused__))line_number)
+void push(stack_t **new_node, unsigned int  __attribute__((__unused__))line_number)
 {
-	stack_t *new_node;
+	stack_t *head = NULL, *tmp;
 
-	new_node = create_node(n);
-	if (*stack == NULL)
-		(*stack) = new_node;
-	else
+	if ((*new_node) == NULL)
+		exit(EXIT_FAILURE);
+	if (head == NULL)
 	{
-		(*stack)->prev = new_node;
-		new_node->next = (*stack);
-		(*stack) = new_node;
+		head = *new_node;
+		return;
 	}
+	tmp = head;
+	head = *new_node;
+	head->next = tmp;
+	tmp->prev = head;
 }
 
 /**
@@ -53,6 +55,8 @@ void push(stack_t **stack, int n, unsigned int  __attribute__((__unused__))line_
  * */
 void pall(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 {
+	if ((*stack) == NULL)
+		exit(EXIT_FAILURE);
 	while ((*stack) != NULL)
 	{
 		printf("%d\n", (*stack)->n);

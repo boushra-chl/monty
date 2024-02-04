@@ -41,7 +41,15 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, int n, unsigned int __attribute__((__unused__))line_number);
-void pall(stack_t **stack, unsigned int __attribute__((__unused__))line_number);
+typedef void (*op_func)(stack_t **, unsigned int);
+
+stack_t *create_node(int n);
+void push(stack_t **stack, unsigned int __attribute__((__unused__))line_number);
+void pall(stack_t **new_node, unsigned int __attribute__((__unused__))line_number);
+void open_file(char *file_name);
+void read_file(FILE *fd);
+int parse_line(char *line, int line_number, int format);
+void find_func(char *opcode, char *value, int line_number, int format);
+void call_func(op_func func, char *opcode, char *value_str, int line_number, int format);
 
 #endif
