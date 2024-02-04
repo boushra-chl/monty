@@ -49,7 +49,7 @@ void pall(stack_t **new_node, unsigned int __attribute__((__unused__))line_numbe
 void open_file(char *file_name);
 void read_file(FILE *fd);
 int parse_line(char *line, int line_number, int format);
-void find_func(char *opcode, char *value, int line_number, int format);
+void find_func(char *opcode, char *val_str, int line_number, int format);
 void call_func(op_func func, char *opcode, char *value_str, int line_number, int format);
 
 #endif

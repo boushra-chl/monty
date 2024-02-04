@@ -55,12 +55,14 @@ void push(stack_t **new_node, unsigned int  __attribute__((__unused__))line_numb
  * */
 void pall(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 {
-	if ((*stack) == NULL)
+	stack_t *current = *stack;
+
+	if (current == NULL)
 		exit(EXIT_FAILURE);
-	while ((*stack) != NULL)
+	while (current != NULL)
 	{
-		printf("%d\n", (*stack)->n);
-		(*stack) = (*stack)->next;
+		printf("%d\n", current->n);
+		current = current->next;
 	}
 }
 

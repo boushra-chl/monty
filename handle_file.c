@@ -38,7 +38,7 @@ void read_file(FILE *fd)
 	int format = 0; /* storage format: stack or queue*/
 
 	line_number = 1;
-	while( getline(&line, &len, fd) != -1)
+	while (getline(&line, &len, fd) != -1)
 	{
 		format = parse_line(line, line_number, format);
 	}
@@ -67,7 +67,7 @@ int parse_line(char *line, int line_number, int format)
 	opcode = strtok(line, " \t\n");
 	if (opcode == NULL || strcmp(opcode, "#") == 0)
 		return (format);
-	value_str = strtok(NULL, " /t/n");
+	value_str = strtok(NULL, " \t\n");
 	if (strcmp(opcode, "stack") == 0)
 		return (0);
 	if (strcmp(opcode, "queue") == 0)
