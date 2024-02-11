@@ -18,14 +18,14 @@ void call_push_func(char *opcode, char *value_str, int line_number)
 			value_str = value_str + 1;
 		if (value_str == NULL)
 		{
-			fprintf(stderr, "Usage: monty file: No integer to push\n");
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		for (i = 0; value_str[i] != '\0'; i++)
 		{
 			if (isdigit(value_str[i]) == 0)
 			{
-				fprintf(stderr, "Usage: monty file: Value not an integer\n");
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 		}
