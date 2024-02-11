@@ -43,15 +43,15 @@ void read_file(FILE *fd)
 		fprintf(stderr, "Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
-	line_number = 1;
+	line_number = 0;
 	while (fgets(line, LINE_LEN_MAX, fd) != NULL)
-	{
+	{	
+		line_number++;
 		opcode = strtok(line, " \t\n");
 		if (opcode == NULL || strcmp(opcode, "#") == 0)
 			continue;
 		value_str = strtok(NULL, " \t\n");
 		call_push_func(opcode, value_str, line_number);
-		line_number++;
 	}
 	free(line);
 }

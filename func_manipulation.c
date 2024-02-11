@@ -14,13 +14,13 @@ void call_push_func(char *opcode, char *value_str, int line_number)
 
 	if (strcmp(opcode, "push") == 0)
 	{
-		if (value_str != NULL && value_str[0] == '-')
-			value_str = value_str + 1;
 		if (value_str == NULL)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
+		if (value_str[0] == '-')
+			value_str = value_str + 1;
 		for (i = 0; value_str[i] != '\0'; i++)
 		{
 			if (isdigit(value_str[i]) == 0)
