@@ -10,7 +10,6 @@
 void push(stack_t **stack, int line_number, int value)
 {
 	stack_t *new_node;
-	*stack = head;
 
 	new_node = (stack_t *)malloc(sizeof(stack_t));
 	if (new_node == NULL)

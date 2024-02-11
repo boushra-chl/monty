@@ -16,5 +16,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	open_file(argv[1]);
+	free(head);
 	return (0);
 }
