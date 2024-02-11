@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * * open_file - function that opens a file
- * * @file_name: name of file to open
- * *
- * * Return: Nothing
- * */
+ * open_file - function that opens a file
+ * @file_name: name of file to open
+ *
+ * Return: Nothing
+ */
 void open_file(char *file_name)
 {
 	FILE *fd;
@@ -17,7 +17,7 @@ void open_file(char *file_name)
 	fd = fopen(file_name, "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr, "Error opening file containing instructions\n");
+		fprintf(stderr, "Error: Can't open file %s\n", *file_name);
 		exit(EXIT_FAILURE);
 	}
 	read_file(fd);
@@ -25,11 +25,11 @@ void open_file(char *file_name)
 }
 
 /**
- * * read_file - function that reads from a file
- * * @fd: pointer to file descriptor
- * *
- * * Return: Nothing
- * */
+ * read_file - function that reads from a file
+ * @fd: pointer to file descriptor
+ *
+ * Return: Nothing
+ */
 void read_file(FILE *fd)
 {
 	char *line = NULL;

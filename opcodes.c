@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * * push - functions that pushes a value to stack
- * * @top: pointer to top of stack
- * * @line_number: number of line in instructions file
- * * @value: integer to add
- * *
- * * Return: Nothing
- * */
+ * push - functions that pushes a value to stack
+ * @stack: pointer to top of stack
+ * @line_number: number of line in instructions file
+ * @value: integer to add
+ *
+ * Return: Nothing
+ */
 void push(stack_t **stack, int line_number, int value)
 {
 	stack_t *new_node;
@@ -30,12 +30,12 @@ void push(stack_t **stack, int line_number, int value)
 }
 
 /**
- * * pall - prints all elements of a stack
- * * @line_number: line number
- * * @stack: pointer to top of stack
- * *
- * * Return: Nothing
- * */
+ * pall - prints all elements of a stack
+ * @line_number: line number
+ * @stack: pointer to top of stack
+ *
+ * Return: Nothing
+ */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = (*stack);

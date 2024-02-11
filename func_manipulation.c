@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * * call_push_func - function that calls the push function
- * * @opcode: pointer to opcode
- * * @value_str: pointer to value
- * * @line_number: number of line in instructions file
- * *
- * * Return: Nothing
- * */
+ * call_push_func - function that calls the push function
+ * @opcode: pointer to opcode
+ * @value_str: pointer to value
+ * @line_number: number of line in instructions file
+ *
+ * Return: Nothing
+ */
 
 void call_push_func(char *opcode, char *value_str, int line_number)
 {
@@ -36,12 +36,12 @@ void call_push_func(char *opcode, char *value_str, int line_number)
 }
 
 /**
- * * find_func - function that finds the appropriate function
- * * @opcode: pointer to opcode
- * * @line_number: number of line in instruction file
- * * @stack: pointer to stack
- * * Return: Nothing
- * */
+ * find_func - function that finds the appropriate function
+ * @opcode: pointer to opcode
+ * @line_number: number of line in instruction file
+ * @stack: pointer to stack
+ * Return: Nothing
+ */
 void find_func(stack_t **stack, char *opcode, int line_number)
 {
 	instruction_t op_func[] = {
