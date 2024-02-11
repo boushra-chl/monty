@@ -15,7 +15,7 @@ void push(stack_t **stack, int line_number, int value)
 	new_node = (stack_t *)malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = value;
@@ -42,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	if (current == NULL)
 	{
-		fprintf(stderr, "L<%d>: usage: pall\n", line_number);
+		fprintf(stderr, "L%d: usage: pall\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	while (current != NULL)
