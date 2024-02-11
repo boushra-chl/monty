@@ -1,14 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define _GNU_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
+#include <sys/types.h>
 #include <string.h>
-#include <stdarg.h>
-#include<sys/types.h>
+#include <stdlib.h>
 #include <ctype.h>
+#define LINE_LEN_MAX 100
 
 /**
  * * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -19,7 +17,6 @@
  * * Description: doubly linked list node structure
  * * for stack, queues, LIFO, FIFO
  * */
-
 typedef struct stack_s
 {
 	int n;
@@ -40,16 +37,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+extern stack_t *head;
 
-typedef void (*op_func)(stack_t **, unsigned int);
-
-stack_t *create_node(int n);
-void push(stack_t **stack, unsigned int __attribute__((__unused__))line_number);
-void pall(stack_t **new_node, unsigned int __attribute__((__unused__))line_number);
 void open_file(char *file_name);
 void read_file(FILE *fd);
-int parse_line(char *line, int line_number, int format);
-void find_func(char *opcode, char *val_str, int line_number, int format);
-void call_func(op_func func, char *opcode, char *value_str, int line_number, int format);
+void call_push_func(char *opcode, char *value_str, int line_number);
+void find_func(stack_t **stack, char *opcode, int line_number);
+
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, int line_number, int value);
 
 #endif
+
