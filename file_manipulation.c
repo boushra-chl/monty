@@ -17,7 +17,7 @@ void open_file(char *file_name)
 	fd = fopen(file_name, "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", *file_name);
+		fprintf(stderr, "Error: Can't open file %s\n", file_name);
 		exit(EXIT_FAILURE);
 	}
 	read_file(fd);
