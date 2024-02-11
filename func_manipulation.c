@@ -58,7 +58,10 @@ void find_func(stack_t **stack, char *opcode, int line_number)
 			op_func[i].f(stack, line_number);
 		}
 		else
+		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
