@@ -48,6 +48,7 @@ void find_func(stack_t **stack, char *opcode, int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	int i;

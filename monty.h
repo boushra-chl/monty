@@ -44,6 +44,7 @@ void read_file(FILE *fd);
 void call_push_func(char *opcode, char *value_str, int line_number);
 void find_func(stack_t **stack, char *opcode, int line_number);
 
+void swap(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
