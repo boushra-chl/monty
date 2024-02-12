@@ -46,6 +46,7 @@ void find_func(stack_t **stack, char *opcode, int line_number)
 {
 	instruction_t op_func[] = {
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	int i;
@@ -56,12 +57,10 @@ void find_func(stack_t **stack, char *opcode, int line_number)
 		if (strcmp(opcode, op_func[i].opcode) == 0)
 		{
 			op_func[i].f(stack, line_number);
-		}
-		else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-			exit(EXIT_FAILURE);
+			return;
 		}
 	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+	exit(EXIT_FAILURE);
 }
 
