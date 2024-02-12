@@ -47,6 +47,7 @@ void find_func(stack_t **stack, char *opcode, int line_number)
 	instruction_t op_func[] = {
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i;
